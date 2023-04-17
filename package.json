@@ -1,0 +1,16 @@
+{
+  "name": "principal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "principal.js",
+  "type": "module",
+  "scripts": {
+    "principal": "node principal.js",
+    "alternative": "node alternative.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-webdriver": "^4.8.2"
+  }
+}
