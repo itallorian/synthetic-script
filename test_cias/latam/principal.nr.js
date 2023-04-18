@@ -1,3 +1,4 @@
+let assert = require('assert');
 let cookieBotao = "cookies-politics-button";
 let origem = "São Paulo, SAO - Brasil";
 let destino = "Rio de Janeiro, RIO - Brasil";
@@ -65,8 +66,8 @@ driver.get('https://www.latamairlines.com/br/pt').then(() => {
                                                                                                                             if (handle !== currentTab) {
                                                                                                                                 driver.switchTo().window(handle).then(() => {
                                                                                                                                     setTimeout(() => {
-                                                                                                                                        //driver.findElement(By.id("searchResultGroup")).click();
-                                                                                                                                    }, 1000)
+                                                                                                                                        driver.findElement(By.id("sort-by-dropdown")).click();
+                                                                                                                                    }, 10000)
                                                                                                                                 });
                                                                                                                             }
                                                                                                                         })

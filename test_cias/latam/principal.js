@@ -60,7 +60,19 @@ new Builder().forBrowser('chrome').build().then((driver) => {
                                                                                                     driver.findElement(By.id(botaoBuscar)).then((searchButton) => {
                                                                                                         driver.actions().click(searchButton).perform().then(() => {
                                                                                                             setTimeout(() => {
-                                                                                                                console.log("teste");
+                                                                                                                driver.getWindowHandle().then((currentTab) => {
+                                                                                                                    driver.getAllWindowHandles().then((tabs) => {
+                                                                                                                        tabs.forEach((handle) => {
+                                                                                                                            if (handle !== currentTab) {
+                                                                                                                                driver.switchTo().window(handle).then(() => {
+                                                                                                                                    setTimeout(() => {
+                                                                                                                                        driver.findElement(By.id("sort-by-dropdown")).click();
+                                                                                                                                    }, 10000)
+                                                                                                                                });
+                                                                                                                            }
+                                                                                                                        })
+                                                                                                                    });
+                                                                                                                });
                                                                                                             }, 31000);
                                                                                                         });
                                                                                                     })
